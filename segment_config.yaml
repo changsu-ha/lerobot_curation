@@ -1,0 +1,36 @@
+# Segmentation configuration for RB-Y1 phone pick-and-place task
+#
+# Phases: approach → grasp → move → insertion → place → move_to_ready
+#
+# Tune these parameters based on your workspace and robot calibration.
+# Run segment_episodes.py with --visualize to check segmentation quality.
+
+gripper:
+  # Gripper aperture thresholds (meters, from prismatic joint value)
+  thresh_closed: 0.01        # Below this = gripper fully closed
+  thresh_open: 0.04          # Above this = gripper fully open
+  dwell_frames: 6            # Min consecutive frames to confirm state change (~200ms at 30Hz)
+  active_hand: right         # Which hand performs the grasp (right or left)
+  # Dataset indices for gripper aperture (first prismatic joint per hand)
+  right_index: 20
+  left_index: 32
+
+velocity:
+  # End-effector speed thresholds (m/s)
+  thresh_moving: 0.005       # Above this = robot is moving
+  thresh_stationary: 0.002   # Below this = robot is stationary
+  dwell_frames: 10           # Min consecutive frames for velocity state change (~333ms at 30Hz)
+
+preprocessing:
+  gripper_median_kernel: 5   # Median filter window for gripper signal (must be odd)
+  pos_smooth_sigma: 3.0      # Gaussian sigma for position smoothing (timesteps)
+  vel_smooth_sigma: 5.0      # Gaussian sigma for velocity smoothing (timesteps)
+
+# Phase names in order
+phases:
+  - approach
+  - grasp
+  - move
+  - insertion
+  - place
+  - move_to_ready
