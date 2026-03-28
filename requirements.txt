@@ -1,0 +1,6 @@
+pin
+numpy
+pandas
+pyarrow
+matplotlib
+huggingface_hub
