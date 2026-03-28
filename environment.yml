@@ -1,0 +1,14 @@
+name: data-curation
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10
+  - pinocchio
+  - numpy
+  - pandas
+  - pyarrow
+  - matplotlib
+  - pip
+  - pip:
+    - huggingface_hub

@@ -27,6 +27,15 @@ FK 계산에는 torso (6) + right arm (7) + left arm (7) = 20개 joint이 사용
 
 ## 설치
 
+### Conda (권장)
+
+```bash
+conda env create -f environment.yml
+conda activate data-curation
+```
+
+### pip
+
 ```bash
 pip install -r requirements.txt
 ```
